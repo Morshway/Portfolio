@@ -21,7 +21,7 @@ I have a deep interest in coding and cybersecurity. Solving problems, writing ef
   - [Google/Coursera], [Ongoing]
 
 - **Introduction to Machine Learning**
-  -[Microsoft/Linkedin], [2023]
+  - [Microsoft,Linkedin], [2023]
 
 ## Portfolio Projects
 
