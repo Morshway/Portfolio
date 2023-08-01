@@ -20,7 +20,7 @@ I have a deep interest in coding and cybersecurity. Solving problems, writing ef
 - **CyberSecurity Analyst Professional**
   - [Google/Coursera], [Ongoing]
 
--**Introduction to Machine Learning**
+- **Introduction to Machine Learning**
   -[Microsoft/Linkedin], [2023]
 
 ## Portfolio Projects
