@@ -1,0 +1,68 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+// We need to create a function that will allow us to calculate the interest earned,
+// by the technical report I'm going to assume it's compounded monthly rather than daily
+// saving me some time rather than calculate each day
+//also it took my three modules to realize i can use multiple // for comments rather than one long sentence
+
+void CalcCompInterest(double initialInvestment, double monthlyDeposit, double APR, int years) {
+    // Keep in mind the function can be void, but the variables need to be double and int.
+    // Years is based on whole numbers thus INT used instead of double its either 7 or 9 years not 7.01 or 9.02
+    int months = years * 12; // One year is twelve months hence why we multiply by 12
+    double interestRate = APR / 100 / 12;
+
+    // We need some UI interface for the customer so let's make a table interface.
+    cout << "Month\tOpening Amount\tDeposited Amount\tTotal\t\tInterest\tClosing Balance\n";
+
+    // Let's create our variables for the more complex stuff
+    double openingAmount = initialInvestment;
+    double total = initialInvestment; // These will be updated later on in the app
+
+    // Let's now try to get the app ready for each month and print
+    for (int i = 1; i <= months; ++i) {
+        double interest = (openingAmount + monthlyDeposit) * interestRate;
+        double closingBalance = openingAmount + monthlyDeposit + interest;
+        // These should allow us to have our variables set for the monthly values
+
+        cout << i << "\t" << fixed << setprecision(2) << openingAmount << "\t\t" << monthlyDeposit << "\t\t" << total << "\t\t" << interest << "\t\t" << closingBalance << "\n";
+
+        openingAmount = closingBalance;
+        total += monthlyDeposit;
+    }
+}
+
+int main() {
+    // Let's have the user give us some inputs so that we can calculate
+    double initialInvestment, monthlyDeposit, APR;
+    int years;
+
+    cout << "Please Enter your Estimated Initial Investment Amount: ";
+    cin >> initialInvestment;
+    //while we dont need the cout statements, it allows the customer to feel like the ui is easter to use
+    //as well as clean up the code so that they dont enter invalid commands
+
+    cout << "Please Enter The Estimated Monthly Deposit: ";
+    cin >> monthlyDeposit;
+
+    cout << "Please Enter The Annual Interest Offered (Compounded): ";
+    cin >> APR;
+
+    cout << "Please Enter The Number of Years You Wish To Invest: ";
+    cin >> years;
+
+    // Calculate and display the compound interest for the customer
+    CalcCompInterest(initialInvestment, monthlyDeposit, APR, years);
+    //I might lose points for this variable as it may not be clear but
+    //I believe that calc stands for calculating or calculus which also calulates,
+    //comp is component or compound which this is an investment app so id assume compound makes sense
+    //interest is ofc interest. 
+
+    //keep in mind last time we ran this, we had some invalid variables like MonthlyDeposit when really we had code for monthlyDeposit. 
+    //debug code when you have a chance. 
+    //apparently if you type rxit (accidentally instead of exit) the code spawns infinte code and crashes. note to self should probably add a if input == "rxit" ignore
+    return 0;
+}
